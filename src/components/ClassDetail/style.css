@@ -1,0 +1,66 @@
+.cover{
+  margin-left: 3rem;
+  margin-right: 3rem;
+  display: flex;
+  flex-direction: column;
+  padding-top: 1rem;
+  align-items: center;
+}
+.list {
+  overflow: hidden;
+  position: relative;
+  text-align: left;
+  background-color: #fff;
+  border: 0.0625rem solid #dadce0;
+  -webkit-border-radius: 1rem;
+  border-radius: 1rem;
+  height: 18.375rem;
+  width: 90%;
+  padding: 0;
+}
+.image {
+  background-image: url(../../img/1.jpg);
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  position: absolute;
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+}
+.content {
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  height: 4.5rem;
+  padding: 1rem 1rem 0.75rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.title {
+  color: #ffffff;
+  font-family: "Roboto";
+  text-decoration: none;
+  padding: 1rem;
+}
+.title h1 {
+  font-weight: 400;
+  font-size: 400%;
+  padding-left: 1rem;
+  padding-top: 1rem;
+}
+.title p {
+  font-size: 140%;
+  padding: 1rem;
+}
+.footer{
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem;
+  padding: 1.5rem;
+}
+
