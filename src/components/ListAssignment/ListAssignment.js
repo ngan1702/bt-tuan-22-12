@@ -170,6 +170,20 @@ function Table({ columns, data, updateMyData, skipPageReset }) {
                       >
                         Set As Done
                         </MenuItem>
+                        <MenuItem
+                        onClick={() => {
+
+                        }}
+                      >
+                        Dowload Template
+                        </MenuItem>
+                        <MenuItem
+                        onClick={() => {
+                          
+                        }}
+                      >
+                        Upload Grade
+                        </MenuItem>
                     </Menu>
 
                     <p style={{ color: "gray" }}>Finish ✔</p>
@@ -590,7 +604,7 @@ const DetailClassGrade = () => {
 
   const exportStudentList = async (e) => {
     e.preventDefault();
-    await classApi.exportStudentList({ classId: classId });
+    await classApi.exportGradeBoard({ classId: classId });
   };
 
   const handleUploadStudentListFile = async (e) => {
@@ -637,12 +651,12 @@ const DetailClassGrade = () => {
             onChange={handleUploadStudentListFile}
           />{" "}
         </Button>
-        <Button variant="outlined" component="label" sx={{ mr: 2 }}>
+        <Button onClick={exportStudentList} variant="outlined" component="label" sx={{ mr: 2 }}>
           {" "}Export All{" "}
           <input
             type="file"
             hidden
-            onChange={exportStudentList}
+            
           />{" "}
         </Button>
       </Box>

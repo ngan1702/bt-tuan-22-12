@@ -108,6 +108,52 @@ const getGradeList = async ({classId}) => {
       });
 }
 
+const downloadAssignmentGrade = async ({classId, assignmentId}) => {
+    const uri = urls.downloadAssignmentGrade.split('/');
+    console.log(uri);
+    const response = await AxiosDownload({
+        url: `/${uri[1]}/${classId}/${assignmentId}/${uri[4]}`,
+        method: 'GET',
+        responseType: 'blob',
+      });
+      
+      const url = window.URL.createObjectURL(new Blob([response.data]));
+      const link = document.createElement('a');
+      link.href = url;
+      link.setAttribute('download', 'AssignmentGrade.xlsx'); //or any other extension
+      document.body.appendChild(link);
+      link.click();
+}
+
+const uploadtAssignmentGrade = async ({classId, assignmentId, file}) => {
+    const uri = urls.uploadtAssignmentGrade.split('/');
+    return AxiosBasic({
+        url: `/${uri[1]}/${classId}/${assignmentId}/${uri[4]}`,
+        method: 'POST',
+        data: file,
+        headers: {
+            'Content-Type': 'multipart/form-data',
+        }
+      });
+}
+
+const exportGradeBoard = async ({classId}) => {
+    const uri = urls.exportGradeBoard.split('/');
+    console.log(uri);
+    const response = await AxiosDownload({
+        url: `/${uri[1]}/${classId}/${uri[3]}/${uri[4]}`,
+        method: 'GET',
+        responseType: 'blob',
+      });
+      
+      const url = window.URL.createObjectURL(new Blob([response.data]));
+      const link = document.createElement('a');
+      link.href = url;
+      link.setAttribute('download', 'GradeBoard.xlsx'); //or any other extension
+      document.body.appendChild(link);
+      link.click();
+}
+
 const classApi = {
     getClasses,
     getClassById,
@@ -119,6 +165,9 @@ const classApi = {
     exportStudentList,
     importStudentList,
     getGradeList,
+    downloadAssignmentGrade,
+    exportGradeBoard,
+    uploadtAssignmentGrade
 }
 
 export default classApi
